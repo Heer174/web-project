@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Lost or Found Item | CampusFind</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="brand">
+            <div class="brand-icon">
+                <i class="fa-solid fa-compass"></i>
+            </div>
+            <span>CampusFind</span>
+        </a>
+
+        <ul class="nav-links">
+            <li>
+                <a href="index.html">
+                    <i class="fa-solid fa-house"></i> Home
+                </a>
+            </li>
+            <li>
+                <a href="my-items.html">
+                    <i class="fa-solid fa-box-archive"></i> My Items &amp; Claims
+                </a>
+            </li>
+            <li>
+                <a href="admin.html">
+                    <i class="fa-solid fa-shield-halved"></i> Admin Panel
+                </a>
+            </li>
+        </ul>
+
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <a href="post-item.html" class="btn btn-primary btn-sm">
+                <i class="fa-solid fa-plus"></i> Report Item
+            </a>
+            <span class="user-badge" title="Student ID: STU202401">
+                <i class="fa-solid fa-user-circle"></i> Alex Johnson
+            </span>
+            <a href="login.html" class="btn btn-secondary btn-sm" title="Log out">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="form-card">
+        <h2 class="form-title">
+            <i class="fa-solid fa-file-pen" style="color: var(--primary);"></i> Report an Item
+        </h2>
+        <p class="form-subtitle">Fill in the item details as accurately as possible to facilitate quick recovery.</p>
+
+        <form id="reportItemForm" action="index.html" method="GET">
+            <!-- Item Type Selection -->
+            <div class="form-group">
+                <label>Report Type *</label>
+                <div style="display: flex; gap: 1rem;">
+                    <label style="display: flex; align-items: center; gap: 8px; font-weight: normal; cursor: pointer; padding: 10px 16px; border: 1px solid var(--gray-300); border-radius: var(--radius-md); flex: 1;">
+                        <input type="radio" name="type" value="lost" checked>
+                        <strong style="color: #dc2626;"><i class="fa-solid fa-circle-exclamation"></i> I LOST this item</strong>
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 8px; font-weight: normal; cursor: pointer; padding: 10px 16px; border: 1px solid var(--gray-300); border-radius: var(--radius-md); flex: 1;">
+                        <input type="radio" name="type" value="found">
+                        <strong style="color: #16a34a;"><i class="fa-solid fa-hand-holding-hand"></i> I FOUND this item</strong>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="title">Item Name / Title *</label>
+                <input type="text" id="title" name="title" placeholder="e.g. Matte Black AirPods Pro (2nd Gen) in White Silicone Case" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="category">Category *</label>
+                    <select id="category" name="category" required>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Student ID & Cards">Student ID &amp; Cards</option>
+                        <option value="Books & Stationery">Books &amp; Stationery</option>
+                        <option value="Wallets & Bags">Wallets &amp; Bags</option>
+                        <option value="Keys">Keys</option>
+                        <option value="Clothing & Accessories">Clothing &amp; Accessories</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="item_date">Date Lost / Found *</label>
+                    <input type="date" id="item_date" name="item_date" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="location">Campus Location *</label>
+                    <input type="text" id="location" name="location" placeholder="e.g. Central Library 2nd Floor, Table #12 or Canteen" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact_phone">Contact Phone Number *</label>
+                    <input type="tel" id="contact_phone" name="contact_phone" placeholder="e.g. 555-0142" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Detailed Description *</label>
+                <textarea id="description" name="description" rows="4" placeholder="Provide distinct features (color, brand, scratches, stickers, contents, or where the item was surrendered / security desk)..." required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="itemImageInput">Attach Photograph (Optional, Max 5MB)</label>
+                <input type="file" id="itemImageInput" name="item_image" accept="image/png, image/jpeg, image/webp, image/gif">
+                <img id="imagePreview" src="#" alt="Selected Image Preview" class="file-preview">
+            </div>
+
+            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                <button type="submit" class="btn btn-primary" style="flex: 1;">
+                    <i class="fa-solid fa-cloud-arrow-up"></i> Publish Item Report
+                </button>
+                <a href="index.html" class="btn btn-secondary">
+                    Cancel
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p style="margin-bottom: 6px; font-weight: 500;">
+            <i class="fa-solid fa-graduation-cap"></i> Campus Lost and Found Portal &bull; Web Development Mini Project
+        </p>
+        <p style="font-size: 0.8rem; color: #94a3b8;">
+            Built with HTML5, CSS3, JavaScript, PHP &amp; MySQL. Designed for college campus student assistance.
+        </p>
+    </div>
+</footer>
+
+<!-- Main App Scripts -->
+<script src="assets/js/main.js"></script>
+<script>
+    // Set default date to today
+    document.getElementById('item_date').value = new Date().toISOString().split('T')[0];
+
+    // Form feedback demo
+    document.getElementById('reportItemForm').addEventListener('submit', function(e) {
+        alert('Item report published successfully! Redirecting to campus catalog...');
+    });
+</script>
+</body>
+</html>

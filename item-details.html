@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue Water Bottle &amp; Graphing Calculator | CampusFind</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="brand">
+            <div class="brand-icon">
+                <i class="fa-solid fa-compass"></i>
+            </div>
+            <span>CampusFind</span>
+        </a>
+
+        <ul class="nav-links">
+            <li>
+                <a href="index.html">
+                    <i class="fa-solid fa-house"></i> Home
+                </a>
+            </li>
+            <li>
+                <a href="my-items.html">
+                    <i class="fa-solid fa-box-archive"></i> My Items &amp; Claims
+                </a>
+            </li>
+            <li>
+                <a href="admin.html">
+                    <i class="fa-solid fa-shield-halved"></i> Admin Panel
+                </a>
+            </li>
+        </ul>
+
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <a href="post-item.html" class="btn btn-primary btn-sm">
+                <i class="fa-solid fa-plus"></i> Report Item
+            </a>
+            <span class="user-badge" title="Student ID: STU202401">
+                <i class="fa-solid fa-user-circle"></i> Alex Johnson
+            </span>
+            <a href="login.html" class="btn btn-secondary btn-sm" title="Log out">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div style="margin-top: 1.5rem;">
+        <a href="index.html" style="color: var(--gray-600); font-size: 0.9rem;">
+            &larr; Back to Item Catalog
+        </a>
+    </div>
+
+    <!-- Main Item Details Layout -->
+    <div class="detail-layout" style="margin-top: 1rem;">
+        <!-- Left: Image Gallery / Graphic Placeholder -->
+        <div class="detail-gallery">
+            <div style="text-align: center; padding: 4rem 1rem; color: var(--gray-400);">
+                <i class="fa-solid fa-calculator" style="font-size: 6rem; margin-bottom: 1.25rem; color: #3b82f6;"></i>
+                <p style="font-size: 0.95rem; font-weight: 500; color: var(--gray-600);">Casio fx-991EX ClassWiz</p>
+                <small style="color: var(--gray-400);">Found in Science Block B</small>
+            </div>
+        </div>
+
+        <!-- Right: Information & Action Details -->
+        <div class="detail-info">
+            <div style="display: flex; gap: 8px; margin-bottom: 0.75rem;">
+                <span class="badge-tag badge-found" style="position: static;">
+                    FOUND ITEM
+                </span>
+                <span class="item-status-pill status-active">
+                    Status: Active
+                </span>
+            </div>
+
+            <h1>Blue Water Bottle &amp; Graphing Calculator (Casio fx-991EX)</h1>
+
+            <table class="detail-meta-table">
+                <tr>
+                    <td class="label"><i class="fa-solid fa-tag"></i> Category</td>
+                    <td class="val">Electronics</td>
+                </tr>
+                <tr>
+                    <td class="label"><i class="fa-solid fa-location-dot"></i> Location</td>
+                    <td class="val"><strong>Science Block B, Room 204</strong></td>
+                </tr>
+                <tr>
+                    <td class="label"><i class="fa-solid fa-calendar-days"></i> Date Found</td>
+                    <td class="val">October 10, 2026</td>
+                </tr>
+                <tr>
+                    <td class="label"><i class="fa-solid fa-user"></i> Reported By</td>
+                    <td class="val">
+                        Sarah Williams 
+                        <span style="color: var(--gray-400); font-size: 0.85rem;">(ID: STU202402)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label"><i class="fa-solid fa-phone"></i> Contact</td>
+                    <td class="val">
+                        <a href="tel:555-0188">
+                            <i class="fa-solid fa-phone-volume"></i> 555-0188
+                        </a>
+                    </td>
+                </tr>
+            </table>
+
+            <div style="margin-bottom: 1.5rem;">
+                <h4 style="color: var(--gray-800); margin-bottom: 0.5rem;">Description &amp; Notes:</h4>
+                <div style="background: var(--gray-50); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--gray-200); line-height: 1.6; color: var(--gray-700);">
+                    Found an insulated blue flask along with a Casio calculator on the back row bench after calculus class. The items were safely stored with the lab attendant in Room 204.
+                </div>
+            </div>
+
+            <!-- Action Area -->
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
+                <button type="button" id="openClaimModalBtn" class="btn btn-primary">
+                    <i class="fa-solid fa-hand-holding-hand"></i> Claim This Item (Verify Ownership)
+                </button>
+                <a href="tel:555-0188" class="btn btn-secondary">
+                    <i class="fa-solid fa-phone"></i> Call Reporter
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Submitted Ownership Claims Section -->
+    <div style="margin-top: 3rem; margin-bottom: 3rem;">
+        <h3 style="font-size: 1.35rem; margin-bottom: 1rem; color: var(--gray-900);">
+            <i class="fa-solid fa-clipboard-check"></i> Ownership Claims Submitted (1)
+        </h3>
+
+        <div class="table-responsive">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Claimer</th>
+                        <th>Proof of Ownership</th>
+                        <th>Contact Details</th>
+                        <th>Submitted On</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <strong>David Lee</strong><br>
+                            <small style="color: var(--gray-500);">STU202403</small>
+                        </td>
+                        <td style="max-width: 320px;">
+                            The calculator has a small silver scratch on the solar panel and my name initials DL written on the inside cover in blue marker.
+                        </td>
+                        <td>
+                            david.l@campus.edu<br>
+                            <small>555-0155</small>
+                        </td>
+                        <td>
+                            Oct 10, 2026 02:45 PM
+                        </td>
+                        <td>
+                            <span class="item-status-pill status-pending">Pending Review</span>
+                        </td>
+                        <td>
+                            <div style="display: flex; gap: 6px;">
+                                <button type="button" class="btn btn-success btn-sm" title="Approve Claim" onclick="alert('Claim Approved! Item status marked as Resolved.')">
+                                    <i class="fa-solid fa-check"></i>
+                                </button>
+                                <button type="button" class="btn btn-danger btn-sm" title="Reject Claim" onclick="alert('Claim rejected.')">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Claim / Proof of Ownership Form -->
+<div id="claimModal" class="modal-overlay">
+    <div class="modal-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--gray-900);">
+                <i class="fa-solid fa-hand-holding-hand" style="color: var(--primary);"></i> Claim This Item
+            </h3>
+            <button type="button" id="closeClaimModalBtn" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--gray-400);">&times;</button>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--gray-500); margin-bottom: 1.25rem;">
+            To verify you are the rightful owner, describe unique features not mentioned in the public listing (e.g. brand model digits, scratches, inside contents, serial number).
+        </p>
+
+        <form id="claimSubmitForm">
+            <div class="form-group">
+                <label for="proof_description">Proof of Ownership / Unique Identifiers *</label>
+                <textarea id="proof_description" name="proof_description" rows="4" placeholder="e.g. My initials DL are on the cover, small scratch on the solar panel, brand of flask is Hydroflask..." required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="contact_info">Your Best Contact Info (Phone / Email) *</label>
+                <input type="text" id="contact_info" name="contact_info" value="alex.j@campus.edu / 555-0142" required>
+            </div>
+
+            <div style="display: flex; gap: 0.75rem; margin-top: 1.5rem;">
+                <button type="submit" class="btn btn-primary" style="flex: 1;">
+                    Submit Ownership Claim
+                </button>
+                <button type="button" id="cancelClaimBtn" class="btn btn-secondary">
+                    Cancel
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p style="margin-bottom: 6px; font-weight: 500;">
+            <i class="fa-solid fa-graduation-cap"></i> Campus Lost and Found Portal &bull; Web Development Mini Project
+        </p>
+        <p style="font-size: 0.8rem; color: #94a3b8;">
+            Built with HTML5, CSS3, JavaScript, PHP &amp; MySQL. Designed for college campus student assistance.
+        </p>
+    </div>
+</footer>
+
+<!-- Main App Scripts -->
+<script src="assets/js/main.js"></script>
+<script>
+    // Modal controls for claim verification
+    const modal = document.getElementById('claimModal');
+    const openBtn = document.getElementById('openClaimModalBtn');
+    const closeBtn = document.getElementById('closeClaimModalBtn');
+    const cancelBtn = document.getElementById('cancelClaimBtn');
+
+    if (openBtn) {
+        openBtn.addEventListener('click', () => {
+            modal.classList.add('active');
+        });
+    }
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+    }
+
+    if (cancelBtn) {
+        cancelBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+    }
+
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('active');
+        }
+    });
+
+    document.getElementById('claimSubmitForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Your ownership claim has been submitted to the reporter for verification!');
+        modal.classList.remove('active');
+    });
+</script>
+</body>
+</html>

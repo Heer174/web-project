@@ -1,11 +1,386 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>My Project</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | CampusFind - Campus Lost &amp; Found Portal</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <!-- Add any HTML structure your code expects here -->
-  <script src="js/main.js"></script>
+
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="brand">
+            <div class="brand-icon">
+                <i class="fa-solid fa-compass"></i>
+            </div>
+            <span>CampusFind</span>
+        </a>
+
+        <ul class="nav-links">
+            <li>
+                <a href="index.html" class="active">
+                    <i class="fa-solid fa-house"></i> Home
+                </a>
+            </li>
+            <li>
+                <a href="my-items.html">
+                    <i class="fa-solid fa-box-archive"></i> My Items &amp; Claims
+                </a>
+            </li>
+            <li>
+                <a href="admin.html">
+                    <i class="fa-solid fa-shield-halved"></i> Admin Panel
+                </a>
+            </li>
+        </ul>
+
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <a href="post-item.html" class="btn btn-primary btn-sm">
+                <i class="fa-solid fa-plus"></i> Report Item
+            </a>
+            <a href="login.html" class="btn btn-secondary btn-sm">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i> Log In
+            </a>
+            <a href="register.html" class="btn btn-primary btn-sm" style="background:#1e293b; border-color:#1e293b;">
+                Register
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="hero">
+    <div class="container">
+        <h1>Lost Something on Campus?</h1>
+        <p>A centralized portal for students and faculty to report, search, and reclaim lost belongings across campus buildings, lecture halls, and facilities.</p>
+        <div class="hero-actions">
+            <a href="post-item.html?type=lost" class="btn btn-primary" style="background: #dc2626; border-color: #dc2626;">
+                <i class="fa-solid fa-circle-exclamation"></i> Report Lost Item
+            </a>
+            <a href="post-item.html?type=found" class="btn btn-primary" style="background: #16a34a; border-color: #16a34a;">
+                <i class="fa-solid fa-hand-holding-hand"></i> Report Found Item
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Live Stats Overview -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon blue">
+                <i class="fa-solid fa-cubes"></i>
+            </div>
+            <div class="stat-info">
+                <h3>5</h3>
+                <p>Total Reported</p>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon red">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="stat-info">
+                <h3>2</h3>
+                <p>Active Lost Items</p>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon green">
+                <i class="fa-solid fa-box-open"></i>
+            </div>
+            <div class="stat-info">
+                <h3>2</h3>
+                <p>Found Items Waiting</p>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon amber">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div class="stat-info">
+                <h3>1</h3>
+                <p>Items Reunited</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Search & Filtering Toolbar -->
+    <div class="filter-card">
+        <div class="filter-row">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass icon"></i>
+                <input type="text" id="searchQuery" placeholder="Search by item name, location, or keyword...">
+            </div>
+
+            <div class="filter-group">
+                <div class="pill-group">
+                    <button type="button" class="pill-btn active" data-type="all">All Items</button>
+                    <button type="button" class="pill-btn" data-type="lost">Lost</button>
+                    <button type="button" class="pill-btn" data-type="found">Found</button>
+                </div>
+
+                <select id="categoryFilter" class="filter-select">
+                    <option value="all">All Categories</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Student ID & Cards">Student ID &amp; Cards</option>
+                    <option value="Books & Stationery">Books &amp; Stationery</option>
+                    <option value="Wallets & Bags">Wallets &amp; Bags</option>
+                    <option value="Keys">Keys</option>
+                    <option value="Clothing & Accessories">Clothing &amp; Accessories</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Items Grid Container -->
+    <div class="item-grid" id="itemsContainer">
+
+        <!-- Item 1: Lost Laptop Charger -->
+        <div class="item-card" 
+             data-type="lost" 
+             data-category="Electronics"
+             data-title="Black HP Spectre Laptop Charger (65W)"
+             data-location="Central Library - 2nd Floor Study Cubicles"
+             data-desc="Left my black 65W USB-C charger plugged under desk #14 on 2nd floor library near the science section.">
+            
+            <div class="item-image-wrapper">
+                <i class="fa-solid fa-laptop item-placeholder-icon"></i>
+                <span class="badge-tag badge-lost">LOST</span>
+                <span class="badge-category">Electronics</span>
+            </div>
+
+            <div class="item-content">
+                <h4 class="item-title" title="Black HP Spectre Laptop Charger (65W)">
+                    Black HP Spectre Laptop Charger (65W)
+                </h4>
+                <p class="item-desc">
+                    Left my black 65W USB-C charger plugged under desk #14 on 2nd floor library near the science section.
+                </p>
+
+                <div class="item-meta">
+                    <div class="meta-row">
+                        <i class="fa-solid fa-location-dot" style="color: #ef4444; width: 14px;"></i>
+                        <span title="Central Library - 2nd Floor Study Cubicles">Central Library - 2nd Floor</span>
+                    </div>
+                    <div class="meta-row">
+                        <i class="fa-solid fa-calendar-day" style="color: #3b82f6; width: 14px;"></i>
+                        <span>Date: Oct 09, 2026</span>
+                    </div>
+                </div>
+
+                <div class="item-footer">
+                    <span class="item-status-pill status-active">Active</span>
+                    <a href="item-details.html?id=1" class="btn btn-secondary btn-sm">
+                        View Details &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 2: Found Water Bottle & Calculator -->
+        <div class="item-card" 
+             data-type="found" 
+             data-category="Electronics"
+             data-title="Blue Water Bottle & Graphing Calculator (Casio fx-991EX)"
+             data-location="Science Block B, Room 204"
+             data-desc="Found an insulated blue flask along with a Casio calculator on the back row bench after calculus class.">
+            
+            <div class="item-image-wrapper">
+                <i class="fa-solid fa-calculator item-placeholder-icon"></i>
+                <span class="badge-tag badge-found">FOUND</span>
+                <span class="badge-category">Electronics</span>
+            </div>
+
+            <div class="item-content">
+                <h4 class="item-title" title="Blue Water Bottle & Graphing Calculator (Casio fx-991EX)">
+                    Blue Water Bottle &amp; Graphing Calculator
+                </h4>
+                <p class="item-desc">
+                    Found an insulated blue flask along with a Casio calculator on the back row bench after calculus class.
+                </p>
+
+                <div class="item-meta">
+                    <div class="meta-row">
+                        <i class="fa-solid fa-location-dot" style="color: #ef4444; width: 14px;"></i>
+                        <span title="Science Block B, Room 204">Science Block B, Room 204</span>
+                    </div>
+                    <div class="meta-row">
+                        <i class="fa-solid fa-calendar-day" style="color: #3b82f6; width: 14px;"></i>
+                        <span>Date: Oct 10, 2026</span>
+                    </div>
+                </div>
+
+                <div class="item-footer">
+                    <span class="item-status-pill status-active">Active</span>
+                    <a href="item-details.html?id=2" class="btn btn-secondary btn-sm">
+                        View Details &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 3: Lost Wallet -->
+        <div class="item-card" 
+             data-type="lost" 
+             data-category="Wallets & Bags"
+             data-title="Brown Leather Wallet with ID Cards"
+             data-location="Campus Canteen / Food Court"
+             data-desc="Brown Fossil wallet lost during lunchtime near juice counter. Contains my driver license and student card.">
+            
+            <div class="item-image-wrapper">
+                <i class="fa-solid fa-wallet item-placeholder-icon"></i>
+                <span class="badge-tag badge-lost">LOST</span>
+                <span class="badge-category">Wallets &amp; Bags</span>
+            </div>
+
+            <div class="item-content">
+                <h4 class="item-title" title="Brown Leather Wallet with ID Cards">
+                    Brown Leather Wallet with ID Cards
+                </h4>
+                <p class="item-desc">
+                    Brown Fossil wallet lost during lunchtime near juice counter. Contains my driver license and student card.
+                </p>
+
+                <div class="item-meta">
+                    <div class="meta-row">
+                        <i class="fa-solid fa-location-dot" style="color: #ef4444; width: 14px;"></i>
+                        <span title="Campus Canteen / Food Court">Campus Canteen / Food Court</span>
+                    </div>
+                    <div class="meta-row">
+                        <i class="fa-solid fa-calendar-day" style="color: #3b82f6; width: 14px;"></i>
+                        <span>Date: Oct 08, 2026</span>
+                    </div>
+                </div>
+
+                <div class="item-footer">
+                    <span class="item-status-pill status-active">Active</span>
+                    <a href="item-details.html?id=3" class="btn btn-secondary btn-sm">
+                        View Details &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 4: Found Keys -->
+        <div class="item-card" 
+             data-type="found" 
+             data-category="Keys"
+             data-title="Set of 3 Keys with a Red Ferrari Keychain"
+             data-location="Sports Complex / Basketball Court"
+             data-desc="Picked up keys with silver ring and red keychain lying near the bleachers. Handed to security reception.">
+            
+            <div class="item-image-wrapper">
+                <i class="fa-solid fa-key item-placeholder-icon"></i>
+                <span class="badge-tag badge-found">FOUND</span>
+                <span class="badge-category">Keys</span>
+            </div>
+
+            <div class="item-content">
+                <h4 class="item-title" title="Set of 3 Keys with a Red Ferrari Keychain">
+                    Set of 3 Keys with Keychain
+                </h4>
+                <p class="item-desc">
+                    Picked up keys with silver ring and red keychain lying near the bleachers. Handed to security reception.
+                </p>
+
+                <div class="item-meta">
+                    <div class="meta-row">
+                        <i class="fa-solid fa-location-dot" style="color: #ef4444; width: 14px;"></i>
+                        <span title="Sports Complex / Basketball Court">Sports Complex / Basketball Court</span>
+                    </div>
+                    <div class="meta-row">
+                        <i class="fa-solid fa-calendar-day" style="color: #3b82f6; width: 14px;"></i>
+                        <span>Date: Oct 10, 2026</span>
+                    </div>
+                </div>
+
+                <div class="item-footer">
+                    <span class="item-status-pill status-active">Active</span>
+                    <a href="item-details.html?id=4" class="btn btn-secondary btn-sm">
+                        View Details &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 5: Resolved Algorithms Textbook -->
+        <div class="item-card" 
+             data-type="lost" 
+             data-category="Books & Stationery"
+             data-title="Data Structures & Algorithms Textbook (CLRS 3rd Ed)"
+             data-location="Computer Science Lab 3"
+             data-desc="Hardcover CLRS algorithms book with yellow sticky bookmarks inside chapter 4 and my initials on page 1.">
+            
+            <div class="item-image-wrapper">
+                <i class="fa-solid fa-book item-placeholder-icon"></i>
+                <span class="badge-tag badge-lost">LOST</span>
+                <span class="badge-category">Books &amp; Stationery</span>
+            </div>
+
+            <div class="item-content">
+                <h4 class="item-title" title="Data Structures & Algorithms Textbook (CLRS 3rd Ed)">
+                    Algorithms Textbook (CLRS)
+                </h4>
+                <p class="item-desc">
+                    Hardcover CLRS algorithms book with yellow sticky bookmarks inside chapter 4 and my initials on page 1.
+                </p>
+
+                <div class="item-meta">
+                    <div class="meta-row">
+                        <i class="fa-solid fa-location-dot" style="color: #ef4444; width: 14px;"></i>
+                        <span title="Computer Science Lab 3">Computer Science Lab 3</span>
+                    </div>
+                    <div class="meta-row">
+                        <i class="fa-solid fa-calendar-day" style="color: #3b82f6; width: 14px;"></i>
+                        <span>Date: Oct 07, 2026</span>
+                    </div>
+                </div>
+
+                <div class="item-footer">
+                    <span class="item-status-pill status-resolved">Resolved</span>
+                    <a href="item-details.html?id=5" class="btn btn-secondary btn-sm">
+                        View Details &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filter Empty State -->
+        <div id="noResultsMessage" class="empty-state" style="display: none;">
+            <div class="empty-state-icon">
+                <i class="fa-solid fa-filter-circle-xmark"></i>
+            </div>
+            <h3>No Matching Items</h3>
+            <p>Try refining your search keyword or switching category filters.</p>
+        </div>
+
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p style="margin-bottom: 6px; font-weight: 500;">
+            <i class="fa-solid fa-graduation-cap"></i> Campus Lost and Found Portal &bull; Web Development Mini Project
+        </p>
+        <p style="font-size: 0.8rem; color: #94a3b8;">
+            Built with HTML5, CSS3, JavaScript, PHP &amp; MySQL. Designed for college campus student assistance.
+        </p>
+    </div>
+</footer>
+
+<!-- Main App Scripts -->
+<script src="assets/js/main.js"></script>
 </body>
 </html>

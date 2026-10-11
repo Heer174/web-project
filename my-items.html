@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Items &amp; Claims | CampusFind</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="brand">
+            <div class="brand-icon">
+                <i class="fa-solid fa-compass"></i>
+            </div>
+            <span>CampusFind</span>
+        </a>
+
+        <ul class="nav-links">
+            <li>
+                <a href="index.html">
+                    <i class="fa-solid fa-house"></i> Home
+                </a>
+            </li>
+            <li>
+                <a href="my-items.html" class="active">
+                    <i class="fa-solid fa-box-archive"></i> My Items &amp; Claims
+                </a>
+            </li>
+            <li>
+                <a href="admin.html">
+                    <i class="fa-solid fa-shield-halved"></i> Admin Panel
+                </a>
+            </li>
+        </ul>
+
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <a href="post-item.html" class="btn btn-primary btn-sm">
+                <i class="fa-solid fa-plus"></i> Report Item
+            </a>
+            <span class="user-badge" title="Student ID: STU202401">
+                <i class="fa-solid fa-user-circle"></i> Alex Johnson
+            </span>
+            <a href="login.html" class="btn btn-secondary btn-sm" title="Log out">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container" style="margin-top: 2rem; margin-bottom: 3rem;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+            <h1 style="font-size: 1.75rem; font-weight: 800; color: var(--gray-900);">My Dashboard</h1>
+            <p style="color: var(--gray-500); font-size: 0.9rem;">Manage items you reported and check status of claims you submitted.</p>
+        </div>
+        <a href="post-item.html" class="btn btn-primary btn-sm">
+            <i class="fa-solid fa-plus"></i> Post New Item
+        </a>
+    </div>
+
+    <!-- Section 1: My Reported Items -->
+    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--gray-800);">
+        <i class="fa-solid fa-boxes-stacked" style="color: var(--primary);"></i> Items You Reported (2)
+    </h3>
+
+    <div class="table-responsive">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Type</th>
+                    <th>Category</th>
+                    <th>Location</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <strong>Black HP Spectre Laptop Charger (65W)</strong>
+                    </td>
+                    <td>
+                        <span class="badge-tag badge-lost" style="position: static;">LOST</span>
+                    </td>
+                    <td>Electronics</td>
+                    <td>Central Library - 2nd Floor</td>
+                    <td>Oct 09, 2026</td>
+                    <td>
+                        <span class="item-status-pill status-active">Active</span>
+                    </td>
+                    <td>
+                        <a href="item-details.html?id=1" class="btn btn-secondary btn-sm">
+                            Manage &rarr;
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Set of 3 Keys with a Red Ferrari Keychain</strong>
+                    </td>
+                    <td>
+                        <span class="badge-tag badge-found" style="position: static;">FOUND</span>
+                    </td>
+                    <td>Keys</td>
+                    <td>Sports Complex / Basketball Court</td>
+                    <td>Oct 10, 2026</td>
+                    <td>
+                        <span class="item-status-pill status-active">Active</span>
+                    </td>
+                    <td>
+                        <a href="item-details.html?id=4" class="btn btn-secondary btn-sm">
+                            Manage &rarr;
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Section 2: Claims I Have Made -->
+    <h3 style="font-size: 1.25rem; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--gray-800);">
+        <i class="fa-solid fa-hand-holding-hand" style="color: var(--accent);"></i> Claims You Submitted (1)
+    </h3>
+
+    <div class="table-responsive">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Target Item</th>
+                    <th>Your Proof Details</th>
+                    <th>Submitted On</th>
+                    <th>Claim Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <strong>Blue Water Bottle &amp; Graphing Calculator</strong><br>
+                        <small style="color: var(--gray-500);"><i class="fa-solid fa-location-dot"></i> Science Block B, Room 204</small>
+                    </td>
+                    <td style="max-width: 320px;">
+                        The calculator has a small silver scratch on the solar panel and my name initials DL written on the inside cover.
+                    </td>
+                    <td>Oct 10, 2026 02:45 PM</td>
+                    <td>
+                        <span class="item-status-pill status-pending">Pending Review</span>
+                    </td>
+                    <td>
+                        <a href="item-details.html?id=2" class="btn btn-secondary btn-sm">
+                            View Item &rarr;
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p style="margin-bottom: 6px; font-weight: 500;">
+            <i class="fa-solid fa-graduation-cap"></i> Campus Lost and Found Portal &bull; Web Development Mini Project
+        </p>
+        <p style="font-size: 0.8rem; color: #94a3b8;">
+            Built with HTML5, CSS3, JavaScript, PHP &amp; MySQL. Designed for college campus student assistance.
+        </p>
+    </div>
+</footer>
+
+<!-- Main App Scripts -->
+<script src="assets/js/main.js"></script>
+</body>
+</html>
